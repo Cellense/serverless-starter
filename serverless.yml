@@ -1,0 +1,30 @@
+service: buffpanel
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+package:
+  individually: true
+
+custom:
+  defaultStage: dev
+  webpack:
+    packager: yarn
+    includeModules:
+      forceExclude:
+        - aws-sdk
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-west-1
+  stage: ${opt:stage, self:custom.defaultStage}
+
+functions:
+  hello:
+    handler: src/lambda/hello.default
+    events:
+    - http:
+        path: hello
+        method: get

@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "noEmit": true,
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "lib": ["esnext"],
+    "skipLibCheck": true,
+    "paths": {
+      "@helpers" : ["helpers.ts"],
+      "@types" : ["types.ts"],
+    }
+  }
+}
